@@ -93,6 +93,7 @@ class AirPodsPostureDetector: NSObject, PostureDetector {
                     self?.activationObserver = nil
                 }
                 self?.motionManager?.stopDeviceMotionUpdates()
+                self?.motionManager = nil  // Force start() to create a fresh manager
                 DispatchQueue.main.async {
                     completion(authorized)
                 }
