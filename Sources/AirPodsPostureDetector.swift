@@ -170,10 +170,9 @@ class AirPodsPostureDetector: NSObject, PostureDetector {
 
     // MARK: - Connection State (Protocol)
 
-    /// Whether compatible AirPods are paired (available for use)
+    /// Whether AirPods are actually in ears and sending motion data
     var isConnected: Bool {
-        guard #available(macOS 14.0, *) else { return false }
-        return CMHeadphoneMotionManager().isDeviceMotionAvailable
+        isReceivingMotionData
     }
 
     /// Callback when connection state changes (AirPods put in or removed from ears)
